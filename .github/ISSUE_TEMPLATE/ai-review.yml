@@ -1,0 +1,19 @@
+name: 4AI Review Request
+description: Request structured reviews from Claude, Gemini, Google AI Studio, ChatGPT
+title: "4AI Review: EXITON SaaS 上位構想 v1.0"
+labels: ["review","ai","architecture"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        docs:
+        - docs/EXITON_SaaS_上位構想書.md
+        - docs/review_prompt.md
+  - type: textarea
+    id: notes
+    attributes:
+      label: メモ
+      description: 伝えたい補足があれば
+      placeholder: 例）今回の重点は「PM Tool⇄Launchの最小連携点」
+    validations:
+      required: false
