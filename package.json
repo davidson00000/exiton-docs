@@ -1,0 +1,17 @@
+{
+  "name": "exiton-docs",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "fmt": "prettier --write \"**/*.md\"",
+    "fmt:check": "prettier --check \"**/*.md\"",
+    "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
+    "spell": "cspell \"**/*.md\" --no-progress",
+    "ci": "npm run fmt:check && npm run lint:md && npm run spell"
+  },
+  "devDependencies": {
+    "cspell": "^8.14.1",
+    "markdownlint-cli2": "^0.15.0",
+    "prettier": "^3.3.3"
+  }
+}

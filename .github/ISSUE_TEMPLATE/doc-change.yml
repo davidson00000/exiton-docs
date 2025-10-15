@@ -1,0 +1,19 @@
+name: Doc Change
+description: Propose a change to docs/specs
+title: "docs: <short title>"
+labels: ["docs"]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: What to change
+      description: Describe the change
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why
+      description: Motivation / context
+    validations:
+      required: true

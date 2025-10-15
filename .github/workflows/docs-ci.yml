@@ -1,0 +1,44 @@
+name: Docs CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  lint-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install tools
+        run: |
+          npm ci || npm i --no-audit --no-fund \
+            prettier@3 \
+            markdownlint-cli2@0.15 \
+            cspell@8
+
+      - name: Prettier check
+        run: npx prettier --check "**/*.md" || (echo "::error::Prettier failed" && exit 1)
+
+      - name: Markdownlint
+        run: npx markdownlint-cli2 "**/*.md" "#node_modules"
+
+      - name: Spellcheck (cspell)
+        run: npx cspell "**/*.md" --no-progress
+
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --accept 200,429 --max-concurrency 8 --timeout 20 --retry-wait-time 2 --exclude-mail --no-progress "**/*.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

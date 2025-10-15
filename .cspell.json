@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "useGitignore": true,
+  "ignorePaths": [".git", "node_modules", ".cache", "package-lock.json"],
+  "words": [
+    "EXITON",
+    "Notion",
+    "Supabase",
+    "shadcn",
+    "mermaid",
+    "Roadmap",
+    "ADR",
+    "RLS",
+    "Changelog",
+    "Playbook",
+    "KPT",
+    "YWT",
+    "ICU"
+  ]
+}

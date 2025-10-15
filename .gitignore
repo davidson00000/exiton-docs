@@ -1,2 +1,7 @@
+# macOS
 .DS_Store
-.DS_Store
+# node
+node_modules/
+# tooling caches
+.tmp/
+.cache/
